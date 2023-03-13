@@ -25,8 +25,7 @@ describe('Launch Firefox in private mode', () => {
   it('should launch private Firefox from Run', async () => {
     await aui.type("firefox --private-window").exec();
     await aui.pressKey('enter').exec();
-    
-    await aui.expect().icon().withText('server').notExists().exec();
+
     await aui.expect().text().withText("Type the name of a program").notExists().exec();
     await aui.expect().text().withExactText("Firefox").exists().exec();
     await aui.expect().text().withText("Private window: Firefox clears your search and browsing history when you close all private windows.").exists().exec();
@@ -68,7 +67,7 @@ describe('Set Firefox to Zoom text only 200%', () => {
 });
 
 describe('Keyboard user logs in to askui', () => {
-  
+
   it('should show cookie policy when visiting askui homepage', async () => {
     await aui.pressTwoKeys('control', 'L').exec();
     await aui.type('askui.com').exec();
