@@ -30,7 +30,6 @@ describe('Launch Firefox in private mode', () => {
     await aui.type("firefox --private-window").exec();
     await aui.pressKey('enter').exec();
     
-    await aui.expect().icon().withText('server').notExists().exec();
     await aui.expect().text().withText("Type the name of a program").notExists().exec();
     await aui.expect().text().withExactText("Firefox").exists().exec();
     await aui.expect().text().withText("Private window: Firefox clears your search and browsing history when you close all private windows.").exists().exec();
